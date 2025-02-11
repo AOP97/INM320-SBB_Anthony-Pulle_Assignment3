@@ -1,0 +1,27 @@
+{
+  "name": "inm320-sbb_anthony-pulle_assignment3",
+  "version": "1.0.0",
+  "main": "index.js",
+"scripts": {
+"dev": "lite-server --baseDir=\"public\"",
+"watch": "sass --watch src/scss:public/assets/css",
+"start": "concurrently \"npm run watch\" \"npm run dev\""
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AOP97/INM320-SBB_Anthony-Pulle_Assignment3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AOP97/INM320-SBB_Anthony-Pulle_Assignment3/issues"
+  },
+  "homepage": "https://github.com/AOP97/INM320-SBB_Anthony-Pulle_Assignment3#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "lite-server": "^2.6.1",
+    "sass": "^1.84.0"
+  }
+}

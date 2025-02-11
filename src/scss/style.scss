@@ -1,0 +1,350 @@
+// Variables
+$primary-color: #324360;
+$secondary-color: #35c4ce;
+$text-color: #787878;
+$bg-footer: #eaf2ff;
+$font-primary: 'Josefin Sans', sans-serif;
+$breakpoint-md: 650px;
+
+// Mixins
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin hoverEffect($hoverColor) {
+    transition: all 0.3s ease;
+    &:hover {
+        color: $hoverColor;
+    }
+}
+
+// General Styles
+body {
+    font-family: Quando, serif;
+    font-size: 15px;
+    color: $text-color;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    margin-bottom: 25px;
+    line-height: 1.6em;
+}
+
+a {
+    font-weight: 400;
+    text-decoration: none;
+    color: #111;
+    @include hoverEffect(#999);
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-family: $font-primary;
+    font-weight: 400;
+    line-height: 1.3em;
+    word-wrap: break-word;
+    color: #111;
+}
+
+h1 { font-size: 37px; }
+h2 { font-size: 31px; }
+h3 { font-size: 26px; }
+h4 { font-size: 21px; }
+h5 { font-size: 18px; }
+h6 { font-size: 15px; }
+
+.container {
+    width: 94%;
+    margin: 0 auto;
+}
+
+// // Header
+// header {
+//     font-family: $font-primary;
+    
+//     nav {
+//         display: none; // 🔹 Hidden by default for mobile menu
+
+//         ul {
+//             display: flex;
+//             flex-direction: column;
+//             background: #f0f0f0;
+//             position: absolute;
+//             top: 60px;
+//             left: 0;
+//             width: 100%;
+//             z-index: 9999;
+            
+//             li {
+//                 padding: 10px;
+//                 text-align: center;
+//                 border-bottom: 1px solid #e9e9e9;
+
+//                 a {
+//                     font-size: 14px;
+//                     color: $primary-color;
+//                     text-transform: uppercase;
+//                     font-weight: 900;
+//                     @include hoverEffect($secondary-color);
+//                 }
+//             }
+//         }
+
+//         &.mobile-menu {
+//             display: block; // 🔹 JavaScript toggles this class to show the menu on mobile
+//         }
+//     }
+// }
+
+// Header
+header {
+    font-family: $font-primary;
+    
+    nav {
+        display: flex; // 🔹 Always visible on desktop
+        max-width: 1170px;
+        margin: 0 auto;
+        height: 60px;
+        @include flexCenter;
+
+        ul {
+            display: flex;
+
+            li {
+                margin: 0 15px;
+                position: relative;
+                line-height: 24px;
+
+                a {
+                    font-size: 12px;
+                    font-weight: 900;
+                    color: $primary-color;
+                    text-transform: uppercase;
+                    @include hoverEffect($secondary-color);
+                }
+
+                // Sub Navigation (Dropdown)
+                ul {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background: #f0f0f0;
+                    width: 180px;
+                    z-index: 9999;
+
+                    li {
+                        border-top: 1px solid #e9e9e9;
+                        padding: 10px;
+
+                        a {
+                            color: #111;
+                            font-size: 14px;
+                            font-weight: 700;
+                            @include hoverEffect($secondary-color);
+                        }
+                    }
+                }
+
+                &:hover > ul {
+                    display: block; // Show dropdown on hover in desktop
+                }
+            }
+        }
+    }
+
+    // Mobile Menu Hidden by Default
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #f0f0f0;
+        z-index: 9999;
+        
+        li {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #e9e9e9;
+
+            a {
+                font-size: 14px;
+                color: $primary-color;
+                text-transform: uppercase;
+                font-weight: 900;
+                @include hoverEffect($secondary-color);
+            }
+
+            // Sub Navigation (Dropdown for Mobile)
+            ul {
+                display: none;
+                background: #e0e0e0;
+                padding-left: 20px;
+
+                li {
+                    padding: 8px 0;
+                    border: none;
+                }
+            }
+
+            &.has-submenu {
+                position: relative;
+
+                &::after {
+                    content: "▼";
+                    font-size: 10px;
+                    margin-left: 8px;
+                    color: $primary-color;
+                }
+
+                &.open > ul {
+                    display: block; // Show on click in mobile
+                }
+            }
+        }
+    }
+}
+
+
+
+// Logo
+.top-logo {
+    width: 200px;
+    margin: 20px auto 40px;
+}
+
+// Posts Section
+article {
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .image-part {
+        margin-bottom: 10px;
+
+        img {
+            transition: transform 3.5s ease-in-out;
+            &:hover {
+                transform: scale(1.5);
+            }
+        }
+    }
+
+    .content-part {
+        flex: 1;
+        padding-left: 50px;
+    }
+}
+
+.post-title {
+    margin-top: 0;
+
+    a {
+        color: $primary-color;
+        text-transform: uppercase;
+        font-size: 26px;
+        font-weight: 900;
+        line-height: 1.3em;
+        @include hoverEffect($secondary-color);
+    }
+}
+
+// Footer
+footer {
+    padding: 30px 0;
+    text-align: center;
+    background: $bg-footer;
+    color: #989898;
+
+    .footer-logo {
+        width: 200px;
+        margin: 20px auto;
+    }
+
+    .footer-social-links {
+        padding: 20px 0;
+        line-height: 2em;
+
+        a {
+            margin: 0 10px;
+            font-size: 16px;
+            text-transform: uppercase;
+            @include hoverEffect(#111);
+        }
+    }
+
+    #footer-copyright {
+        padding: 20px 0;
+        font-size: 12px;
+    }
+}
+
+// Media Queries
+@media only screen and (min-width: $breakpoint-md) {
+    .container {
+        width: 90%;
+    }
+
+    header {
+        nav {
+            display: none; // 🔹 Show the menu only on desktop
+            max-width: 1170px;
+            margin: 0 auto;
+            height: 60px;
+            @include flexCenter;
+
+            ul {
+                flex-direction: row;
+                position: static;
+                background: transparent;
+                width: auto;
+
+                li {
+                    padding: 0;
+                    border: none;
+
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    article {
+        display: flex;
+        
+        .image-part {
+            flex: 1;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .content-part {
+            flex: 1;
+            padding-left: 50px;
+        }
+    }
+
+    .footer-social-links {
+        a {
+            margin: 0 28px;
+
+            span {
+                display: inline;
+                font-size: 11px;
+            }
+        }
+    }
+}
