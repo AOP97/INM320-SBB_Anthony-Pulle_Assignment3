@@ -129,58 +129,7 @@ header {
         }
     }
 
-    // Mobile Menu Hidden by Default
-    .mobile-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: #f0f0f0;
-        z-index: 9999;
-        
-        li {
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid #e9e9e9;
 
-            a {
-                font-size: 14px;
-                color: $primary-color;
-                text-transform: uppercase;
-                font-weight: 900;
-                @include hoverEffect($secondary-color);
-            }
-
-            // Sub Navigation (Dropdown for Mobile)
-            ul {
-                display: none;
-                background: #e0e0e0;
-                padding-left: 20px;
-
-                li {
-                    padding: 8px 0;
-                    border: none;
-                }
-            }
-
-            &.has-submenu {
-                position: relative;
-
-                &::after {
-                    content: "▼";
-                    font-size: 10px;
-                    margin-left: 8px;
-                    color: $primary-color;
-                }
-
-                &.open > ul {
-                    display: block;
-                }
-            }
-        }
-    }
 }
 
 
