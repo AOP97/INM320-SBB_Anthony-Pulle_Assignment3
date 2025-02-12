@@ -94,6 +94,9 @@ header nav ul li a {
 header nav ul li a:hover {
   color: #35c4ce;
 }
+header nav ul li.current-menu-item a {
+  border-bottom: 2px solid #324360;
+}
 header nav ul li ul {
   display: none;
   position: absolute;
@@ -220,13 +223,20 @@ footer .footer-social-links {
   line-height: 2em;
 }
 footer .footer-social-links a {
-  margin: 0 10px;
+  margin: 0 28px;
   font-size: 16px;
   text-transform: uppercase;
   transition: all 0.3s ease;
 }
 footer .footer-social-links a:hover {
-  color: #111;
+  color: #787878;
+}
+footer .footer-social-links i {
+  margin-right: 5px;
+}
+footer .footer-social-links a span {
+  display: inline;
+  font-size: 11px;
 }
 footer #footer-copyright {
   padding: 20px 0;

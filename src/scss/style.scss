@@ -100,7 +100,7 @@ h6 { font-size: 15px; }
 //         }
 
 //         &.mobile-menu {
-//             display: block; // 🔹 JavaScript toggles this class to show the menu on mobile
+//             display: block; //  JavaScript toggles this class to show the menu on mobile
 //         }
 //     }
 // }
@@ -110,7 +110,7 @@ header {
     font-family: $font-primary;
     
     nav {
-        display: flex; // 🔹 Always visible on desktop
+        display: flex; //  Always visible on desktop
         max-width: 1170px;
         margin: 0 auto;
         height: 60px;
@@ -130,6 +130,10 @@ header {
                     color: $primary-color;
                     text-transform: uppercase;
                     @include hoverEffect($secondary-color);
+                }
+
+                &.current-menu-item a {  
+                    border-bottom: 2px solid $primary-color;  
                 }
 
                 // Sub Navigation (Dropdown)
@@ -152,11 +156,12 @@ header {
                             font-weight: 700;
                             @include hoverEffect($secondary-color);
                         }
+                        
                     }
                 }
 
                 &:hover > ul {
-                    display: block; // Show dropdown on hover in desktop
+                    display: block;
                 }
             }
         }
@@ -209,7 +214,7 @@ header {
                 }
 
                 &.open > ul {
-                    display: block; // Show on click in mobile
+                    display: block;
                 }
             }
         }
@@ -277,10 +282,19 @@ footer {
         line-height: 2em;
 
         a {
-            margin: 0 10px;
+            margin: 0 28px;
             font-size: 16px;
             text-transform: uppercase;
-            @include hoverEffect(#111);
+            @include hoverEffect($text-color);
+        }
+
+        i{
+            margin-right: 5px;
+        }
+
+        a span {
+            display: inline;
+            font-size: 11px;
         }
     }
 
@@ -298,7 +312,7 @@ footer {
 
     header {
         nav {
-            display: none; // 🔹 Show the menu only on desktop
+            display: none; 
             max-width: 1170px;
             margin: 0 auto;
             height: 60px;
